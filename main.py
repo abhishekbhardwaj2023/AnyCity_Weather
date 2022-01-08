@@ -9,6 +9,7 @@ def weather(city):
     #requesting for data from google
     res = requests.get(f'https://www.google.com/search?q={city}&oq={city}&aqs=chrome.0.35i39l2j0l4j46j69i60.6128j1j7&sourceid=chrome&ie=UTF-8',headers=headers)
     print("Assured by Google\n")
+    
     soup = BeautifulSoup(res.text,'html.parser')   
     location = soup.select('#wob_loc')[0].getText().strip()  
     time = soup.select('#wob_dts')[0].getText().strip()       
